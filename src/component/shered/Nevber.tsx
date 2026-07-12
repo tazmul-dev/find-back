@@ -1,5 +1,5 @@
 'use client'
-import { Button } from "@heroui/react";
+
 import Link from "next/link";
 import { useState } from "react";
 
@@ -21,6 +21,10 @@ const Nevber = () => {
           </li>
      </>
      )
+     const loginbtn = (<>
+        <Link href="/auth/signIn">Login</Link>
+          <Link href='/auth/signUp'>Sign Up</Link>
+     </>)
 
      return (
     <nav className="sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg">
@@ -58,15 +62,14 @@ const Nevber = () => {
           </button>
           <div className="flex items-center gap-3">
             {/* <Logo /> */}
-            <p className="font-bold">ACME</p>
+            <p className="font-bold">FindBack</p>
           </div>
         </div>
         <ul className="hidden items-center gap-4 md:flex">
          {links}
         </ul>
         <div className="hidden items-center gap-4 md:flex">
-          <Link href="#">Login</Link>
-          <Button>Sign Up</Button>
+          {loginbtn}
         </div>
       </header>
       {isMenuOpen && (
@@ -74,6 +77,8 @@ const Nevber = () => {
           <ul className="flex flex-col gap-2 p-4">
            {links}
           </ul>
+          
+          {loginbtn}
         </div>
       )}
     </nav>
