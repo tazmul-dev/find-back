@@ -9,7 +9,7 @@ const Nevber = () => {
      const [isMenuOpen, setIsMenuOpen] = useState(false);
      const links = ( <>
       <li>
-            <Link href="#">Features</Link>
+            <Link href="/browseItems">Browse Items</Link>
           </li>
           <li>
             <Link href="#" className="font-medium text-accent" aria-current="page">
