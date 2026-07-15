@@ -17,6 +17,9 @@ const Nevber = () => {
 
      const links = ( <>
       <li>
+            <Link href="/">Home</Link>
+          </li>
+      <li>
             <Link href="/browseItems">Browse Items</Link>
           </li>
           <li>
@@ -25,8 +28,9 @@ const Nevber = () => {
             </Link>
           </li>
           <li>
-            <Link href="#">Pricing</Link>
+            <Link href="/managePost">Manage post</Link>
           </li>
+         
      </>
      )
      const loginbtn = (<>

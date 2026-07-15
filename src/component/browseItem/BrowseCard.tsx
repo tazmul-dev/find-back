@@ -60,7 +60,7 @@ const BrowseCard = ({item}:BrowseCardProps) => {
       <Card.Footer className="px-5 pb-5 pt-2">
         <Link
           className="w-full bg-[#FF7A00] hover:bg-[#E66E00] text-white font-bold text-base rounded-xl py-3 justify-center text-center no-underline hover:no-underline"
-          href={'/'}
+          href={`/browseItems/${item?._id}`}
         >
           View Details
         </Link>

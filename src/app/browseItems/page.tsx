@@ -5,7 +5,7 @@ import { Item } from '@/lib/tsType';
 
 const browsePage = async() => {
  const browsItems = await browseData()
-    console.log('browseItems', browsItems)
+    // console.log('browseItems', browsItems)
     return (
         <div>
             

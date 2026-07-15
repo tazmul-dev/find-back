@@ -53,7 +53,7 @@ const AddItemForm = () => {
       setLoading(true);
 
       const res = await fetch(
-        `http://localhost:5000/addItem`,
+        `https://find-back-server.vercel.app/addItem`,
         {
           method: "POST",
           headers: {
