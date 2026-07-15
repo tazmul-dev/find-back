@@ -1,19 +1,27 @@
 'use client'
 
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { useState } from "react";
 
 
 
 const Nevber = () => {
      const [isMenuOpen, setIsMenuOpen] = useState(false);
+     const [toggle, setToggle] = useState("login")
+    const { data:session } = authClient.useSession()
+
+ const user = session?.user
+//  console.log(user,"user")
+
      const links = ( <>
       <li>
             <Link href="/browseItems">Browse Items</Link>
           </li>
           <li>
-            <Link href="#" className="font-medium text-accent" aria-current="page">
-              Dashboard
+            <Link href="/addItem">
+              AddItem
             </Link>
           </li>
           <li>
@@ -22,8 +30,30 @@ const Nevber = () => {
      </>
      )
      const loginbtn = (<>
-        <Link href="/auth/signIn">Login</Link>
-          <Link href='/auth/signUp'>Sign Up</Link>
+
+      {user? 
+   <button onClick={async()=>{await authClient.signOut(); redirect('/auth/signIn')}} className="btn text-red-500">SingOut</button>
+  :<div className="flex gap-2">
+
+       <Link
+          onClick={()=>setToggle('login')}
+           className={`${toggle ==='login'? ' btn btn-primary ': 'btn'}`}
+            href="/auth/signIn"
+            
+          >
+            Login
+          </Link>
+
+          <Link
+          onClick={()=>setToggle('register')}
+            className={`${toggle ==='register'? ' btn btn-primary ': 'btn'}`}
+            href="/auth/signUp"
+            
+          >
+            Register
+          </Link>
+    </div>}
+    
      </>)
 
      return (
